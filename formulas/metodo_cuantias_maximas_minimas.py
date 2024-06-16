@@ -3,7 +3,7 @@ import sys
 
 from utils.datos import pedir_parametros 
 
-def MetodoIterativo():
+def CuantiasMaximasMinimas():
     """
     Params:
         Especify the necessary PARAMS for this function.
@@ -16,5 +16,4 @@ def MetodoIterativo():
 
 
 if '__main__' == __name__:
-    MetodoIterativo()
-
+    CuantiasMaximasMinimas()
