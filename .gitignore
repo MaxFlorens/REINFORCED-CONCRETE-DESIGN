@@ -1,4 +1,4 @@
 .venv
 note.md
 programa.txt
-
+**/__pycache__/**
