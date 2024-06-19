@@ -1,5 +1,5 @@
 .venv
 note.md
 programa.txt
-.utils/__pycache__/*
+**/__pycache__/**
 

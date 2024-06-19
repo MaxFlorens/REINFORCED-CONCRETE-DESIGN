@@ -1,40 +1,35 @@
-from utils.datos import pedir_parametros, tiene_seccion, VerificarMaximosMinimos, MostrarConfiguracionVarillas
-from formulas import MetodoIterativo, CuantiasMaximasMinimas
+from utils.datos import pedir_parametros, tiene_seccion 
+from utils.funciones import (
+    CalcularNumeroVarillas,
+    MostrarConfiguracionVarillas, 
+    VerificarMaximosMinimos
+)
+from formulas.metodo_iterativo import MetodoIterativo 
+from formulas.metodo_cuantias_maximas_minimas import (
+    CuantiasMaximasMinimas
+)
 
 def DisenioVigaSimplementeReforzada():
 
 	# ancho (null, float), peralte, recubrimiento <- pedir_parametros()
     ancho, peralte, recubrimiento = pedir_parametros()
 
-    """
-	Si tiene_seccion(ancho, peralte):
-		uso_metodo_iterativo <- verdadero
-		AreaAcero <- MetodoIterativo()
-	Caso contrario:
-		uso_metodo_iterativo <- false
-		AreaAcero <- CuantiasMaximasMinimas()
-    """
     if tiene_seccion(ancho, peralte):
+        print(f"Aplicando metodo Iterativo\n")
         use_metodo_iterativo = True
         area_acero = MetodoIterativo()
     else:
+        print(f"Aplicando metodo de cuantias maximas y minimas\n")
         uso_metodo_iterativo = False
         area_acero = CuantiasMaximasMinimas()
 
-	#numero_varillas y area_acero_real <- CalcularNumeroVarillas(AreaAcero)
     numero_varillas, area_acero_real = CalcularNumeroVarillas()
 	
-    """
-	Si uso_metodo_iterativo
-		resultado <- VerificarMaximosMinimos(area_acero_real, ancho, peralte_util, parametros) 
-		Si resultado verdadero:
-			mostrar correcto
-		Caso contrario
-			mostrar FuncionalError
-    """
     if uso_metodo_iterativo:
         resultado = VerificarMaximosMinimos()
 
     #MostrarConfiguracionVarillas(numero_varillas, area_acero_real, cuantia_real)
     MostrarConfiguracionVarillas()
 
+if '__main__' == __name__:
+    DisenioVigaSimplementeReforzada()
