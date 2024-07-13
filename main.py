@@ -16,7 +16,7 @@ def DisenioVigaSimplementeReforzada():
 
     if tiene_seccion(ancho, peralte, recubrimiento):
         print(f"Aplicando metodo Iterativo\n")
-        use_metodo_iterativo = True
+        uso_metodo_iterativo = True
         area_acero = MetodoIterativo(ancho, peralte, recubrimiento)
     else:
         print(f"Aplicando metodo de cuantias maximas y minimas\n")
