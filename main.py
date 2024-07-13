@@ -1,4 +1,4 @@
-from utils.datos import pedir_parametros, tiene_seccion 
+from utils.datos import pedir_parametros, tiene_seccion, parametros_iterativo
 from utils.funciones import (
     CalcularNumeroVarillas,
     MostrarConfiguracionVarillas, 
@@ -14,10 +14,10 @@ def DisenioVigaSimplementeReforzada():
 	# ancho (null, float), peralte, recubrimiento <- pedir_parametros()
     ancho, peralte, recubrimiento = pedir_parametros()
 
-    if tiene_seccion(ancho, peralte):
+    if tiene_seccion(ancho, peralte, recubrimiento):
         print(f"Aplicando metodo Iterativo\n")
         use_metodo_iterativo = True
-        area_acero = MetodoIterativo()
+        area_acero = MetodoIterativo(ancho, peralte, recubrimiento)
     else:
         print(f"Aplicando metodo de cuantias maximas y minimas\n")
         uso_metodo_iterativo = False

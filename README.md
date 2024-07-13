@@ -10,11 +10,11 @@ Run the `main.py` file as a module.
 python -m main
 ```
 
-## ROADMAP
+## ROADMAP 
 
 - [x] Project structure.
-- [] Adding **description** to `MetodoIterativo` function in `formulas/metodo_iterativo.py` file.
-- [] Adding **implementation** to `MetodoIterativo` function in `formulas/metodo_iterativo.py` file.
+- [x] Adding **description** to `MetodoIterativo` function in `formulas/metodo_iterativo.py` file.
+- [x] Adding **implementation** to `MetodoIterativo` function in `formulas/metodo_iterativo.py` file.
 - [] Adding **description** to `CuantiasMaximasMinimas` function in `formulas/metodo_cuantias_maximas_minimas.py` file.
 - [] Adding **implementation** to `CuantiasMaximasMinimas` function in `formulas/metodo_cuantias_maximas_minimas.py` file.
 - [] **Description** of `CacularNumeroVarillas` function in `utils/funciones.py`

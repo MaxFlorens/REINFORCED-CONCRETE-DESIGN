@@ -14,12 +14,22 @@ def pedir_parametros():
 
     return ancho, peralte, recubrimiento
 
-def tiene_seccion(ancho: float|None, peralte: float|None) -> bool:
+def tiene_seccion(ancho: float|None, peralte: float|None, recubrimiento: float|None) -> bool:
     """
     Valida que el ancho y el peralte tengan valores validos para formar una seccion:
     Especificar que es un valor valido: 
     """
     valido = lambda dimension: (dimension != None) and (dimension > 0)
-    if (not valido(ancho) or not valido(peralte)):
+    if (not valido(ancho) or not valido(peralte) or not valido(recubrimiento)):
         return False
     return True
+def parametros_iterativo():
+    res_concreto = input("Ingrese la resistencia del concreto (f'c): ")
+    res_acero = input("Ingrese la resistencia de fluencia del acero (Fy): ")
+    momento_ultimo = input("Ingrese el momento ultimo que debe resistir la viga (Mu): ")
+
+    res_concreto = validar_numero(res_concreto)
+    res_acero = validar_numero(res_acero)
+    momento_ultimo = validar_numero(momento_ultimo)
+
+    return res_concreto, res_acero, momento_ultimo
