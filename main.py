@@ -2,7 +2,9 @@ from utils.datos import pedir_parametros, tiene_seccion, parametros_calculos
 from utils.funciones import (
     CalcularNumeroVarillas,
     MostrarConfiguracionVarillas, 
-    VerificarMaximosMinimos
+    VerificarMaximosMinimos,
+    beta1_fc
+
 )
 from formulas.metodo_iterativo import MetodoIterativo 
 from formulas.metodo_cuantias_maximas_minimas import (

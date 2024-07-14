@@ -2,6 +2,7 @@ import os
 import sys
 
 from utils.datos import pedir_parametros, parametros_calculos
+from utils.funciones import beta1_fc
 
 def Cuantia_max():
     print("se realizara el proceso del calculo para la cuantia maxima")
@@ -21,6 +22,8 @@ def CuantiasMaximasMinimas():
         Los parametros necesarios para realizar la función vienen de la función parametros_calculos
     """
     res_concreto, res_acero, momento_ultimo = parametros_calculos()
+    beta1 = beta1_fc(res_concreto)
+    print(beta1)
     #Generamos un menú para poder elegir si se desea la cuanti máxima o mínima
     while True:
         menu()

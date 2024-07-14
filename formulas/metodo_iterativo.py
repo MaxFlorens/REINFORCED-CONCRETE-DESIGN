@@ -19,6 +19,7 @@ def MetodoIterativo(ancho, peralte, recubrimiento):
     error = 2
     a_tanteado = random.uniform(0.0, peralte)
     peralte_efectivo = peralte - recubrimiento
+    print(peralte_efectivo)
     while error > 1:
         As = (momento_ultimo * 10**5)/(0.9 * res_acero * (peralte_efectivo - (a_tanteado/2)))
         a_calculado = (As * res_acero)/(0.85 * res_concreto * ancho)
