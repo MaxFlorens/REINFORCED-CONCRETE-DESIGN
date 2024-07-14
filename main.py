@@ -1,4 +1,4 @@
-from utils.datos import pedir_parametros, tiene_seccion, parametros_iterativo
+from utils.datos import pedir_parametros, tiene_seccion, parametros_calculos
 from utils.funciones import (
     CalcularNumeroVarillas,
     MostrarConfiguracionVarillas, 

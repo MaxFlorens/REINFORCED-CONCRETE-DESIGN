@@ -3,7 +3,7 @@ import sys
 import random
 
 from utils.datos import pedir_parametros 
-from utils.datos import parametros_iterativo
+from utils.datos import parametros_calculos
 
 def MetodoIterativo(ancho, peralte, recubrimiento):
     """
@@ -12,7 +12,7 @@ def MetodoIterativo(ancho, peralte, recubrimiento):
     Description: 
         En esta funcion se desarrollara el procedo iterativo, con los parametros ya proporcionados 
     """
-    res_concreto, res_acero, momento_ultimo = parametros_iterativo() 
+    res_concreto, res_acero, momento_ultimo = parametros_calculos()
     """
     EMPEZAMOS A DETALLAR AL FORUMULA DE ITERACIÓN 
     """
@@ -20,7 +20,7 @@ def MetodoIterativo(ancho, peralte, recubrimiento):
     a_tanteado = random.uniform(0.0, peralte)
     peralte_efectivo = peralte - recubrimiento
     while error > 1:
-        As = momento_ultimo/(res_acero * (peralte_efectivo - (a_tanteado/2)))
+        As = (momento_ultimo * 10**5)/(0.9 * res_acero * (peralte_efectivo - (a_tanteado/2)))
         a_calculado = (As * res_acero)/(0.85 * res_concreto * ancho)
         #AHORA CALCULAREMOS EL PORCENTAJE DE ERROR
         error = abs(((a_tanteado - a_calculado)/ a_tanteado ) * 100)

@@ -4,9 +4,9 @@ def validar_numero(numero):
     return float(numero)
 
 def pedir_parametros():
-    ancho = input("Ingrese el ancho: ")
-    peralte = input("Ingrese el peralte: ")
-    recubrimiento = input("Ingrese el recubrimiento: ")
+    ancho = input("Ingrese el ancho (cm): ")
+    peralte = input("Ingrese el peralte (cm): ")
+    recubrimiento = input("Ingrese el recubrimiento (cm): ")
     
     ancho = validar_numero(ancho)
     peralte = validar_numero(peralte)
@@ -23,10 +23,10 @@ def tiene_seccion(ancho: float|None, peralte: float|None, recubrimiento: float|N
     if (not valido(ancho) or not valido(peralte) or not valido(recubrimiento)):
         return False
     return True
-def parametros_iterativo():
-    res_concreto = input("Ingrese la resistencia del concreto (f'c): ")
-    res_acero = input("Ingrese la resistencia de fluencia del acero (Fy): ")
-    momento_ultimo = input("Ingrese el momento ultimo que debe resistir la viga (Mu): ")
+def parametros_calculos():
+    res_concreto = input("Ingrese la resistencia del concreto, f'c (Kg/cm2): ")
+    res_acero = input("Ingrese la resistencia de fluencia del acero, Fy (Kg/cm2): ")
+    momento_ultimo = input("Ingrese el momento ultimo que debe resistir la viga, Mu (Tn-m): ")
 
     res_concreto = validar_numero(res_concreto)
     res_acero = validar_numero(res_acero)
