@@ -36,4 +36,4 @@ def MetodoIterativo(ancho, peralte, recubrimiento):
             return As
             
 if '__main__' == __name__:
-    MetodoIterativo()
+    MetodoIterativo(ancho=1, peralte=1, recubrimiento=1)

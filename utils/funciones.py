@@ -1,13 +1,13 @@
 def beta1_fc(res_concreto):
-    if res_concreto >= '175' and res_concreto <= '280':
+    if res_concreto >= 175 and res_concreto <= 280:
         beta1 = 0.85
-    elif res_concreto == '350':
+    elif res_concreto == 350:
         beta1 = 0.8
-    elif res_concreto == '420':
+    elif res_concreto == 420:
         beta1 = 0.75
-    elif res_concreto == '490':
+    elif res_concreto == 490:
         beta1 = 0.7
-    elif res_concreto >= '560' and res_concreto <= '230':
+    elif res_concreto >= 560 and res_concreto <= 230:
         beta1 = 0.65
     return beta1
 
