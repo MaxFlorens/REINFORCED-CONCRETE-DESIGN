@@ -48,10 +48,12 @@ def tanteo(valor_prueba, ancho, peralte, recubrimiento):
             if validartanteo(ancho, peralte_efectivo):
                 val_tan = ancho * peralte_efectivo**2
                 error = abs(((val_tan-valor_prueba)/(val_tan)) * 100)
-                if error < 1 and peralte_efectivo > peralte_efectivo_previo:
+                #print(f"estos son los errores que resultan: {error}")
+                if error < 5 and peralte_efectivo > peralte_efectivo_previo:
                     ancho_previo = ancho
                     peralte_efectivo_previo = peralte_efectivo
                     error_ = error
+                    #print(f"El error que queda al ultimo: {error_}")
     print(f"El error mas mínimo es: {error_}")
     return ancho_previo, peralte_efectivo_previo
 

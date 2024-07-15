@@ -10,9 +10,11 @@ def Cuantia_max(Cuantia_bal):
     print(f"se realizara el proceso del calculo para la cuantia maxima con un Ro de: {Ro}")
     return Ro
 
-def Cuantia_min():
+def Cuantia_min(res_concreto, res_acero):
 
-    print("se realizara el proceso del calculo para la cuantia minima")
+    Ro = (0.7 * res_concreto**(1/2))/(res_acero)
+    print(f"se realizara el proceso del calculo para la cuantia mínima con un Ro de: {Ro}")
+    return Ro
 
 def menu():
     print("Elige la cuantia que deseas calcular")
@@ -48,7 +50,16 @@ def CuantiasMaximasMinimas(recubrimiento):
             return As
             break
         elif opc == '2':
-            Cuantia_min()
+            Ro = Cuantia_min(res_concreto, res_acero)
+            valor_prueba2 = valor_incial_para_tanteo(res_concreto, res_acero, momento_ultimo, Ro)
+            ancho, peralte_efectivo = tanteo(valor_prueba=valor_prueba2, ancho=0, peralte=0, recubrimiento=recubrimiento)
+            print(f"El valor aproximado con los valores tanteados es: {ancho*peralte_efectivo**2}")
+            As = Ro * ancho * peralte_efectivo
+            print(f"El area de acero calculado es: {As}")
+            print(f"El ancho tanteado es de: {ancho}")
+            print(f"El peralte tanteado es de: {peralte_efectivo}")
+            return As
+            break 
         elif opc == '3':
             print("Sigue estudiando noma")
             break
