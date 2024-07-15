@@ -14,13 +14,22 @@ def pedir_parametros():
 
     return ancho, peralte, recubrimiento
 
-def tiene_seccion(ancho: float|None, peralte: float|None, recubrimiento: float|None) -> bool:
+def tiene_seccion(ancho: float|None, peralte: float|None) -> bool:
     """
     Valida que el ancho y el peralte tengan valores validos para formar una seccion:
     Especificar que es un valor valido: 
     """
-    valido = lambda dimension: (dimension != None) and (dimension > 0)
-    if (not valido(ancho) or not valido(peralte) or not valido(recubrimiento)):
+    def valido(dimension):
+        if dimension != None and dimension > 0:
+          return True
+        return False
+    #Tambien se puede escribir asi
+    #def valido(dimension):
+    #return dimension != None and dimension > 0
+    #TAMBIEN DE ESTA FORMA
+    #valido = lambda dimension: (dimension != None) and (dimension > 0)
+    
+    if (not valido(ancho) or not valido(peralte)):
         return False
     return True
 def parametros_calculos():

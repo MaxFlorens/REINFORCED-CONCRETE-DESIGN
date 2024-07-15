@@ -16,14 +16,14 @@ def DisenioVigaSimplementeReforzada():
 	# ancho (null, float), peralte, recubrimiento <- pedir_parametros()
     ancho, peralte, recubrimiento = pedir_parametros()
 
-    if tiene_seccion(ancho, peralte, recubrimiento):
+    if tiene_seccion(ancho, peralte):
         print(f"Aplicando metodo Iterativo\n")
         uso_metodo_iterativo = True
         area_acero = MetodoIterativo(ancho, peralte, recubrimiento)
     else:
         print(f"Aplicando metodo de cuantias maximas y minimas\n")
         uso_metodo_iterativo = False
-        area_acero = CuantiasMaximasMinimas()
+        area_acero = CuantiasMaximasMinimas(recubrimiento)
 
     numero_varillas, area_acero_real = CalcularNumeroVarillas()
 	
