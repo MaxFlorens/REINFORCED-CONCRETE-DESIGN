@@ -2,7 +2,7 @@ import os
 import sys
 
 from utils.datos import pedir_parametros, parametros_calculos
-from utils.funciones import beta1_fc, tanteo, valor_incial_para_tanteo
+from utils.funciones import beta1_fc, tanteo, valor_incial_para_tanteo, cuantia_balanceada
 
 def Cuantia_max(Cuantia_bal):
     
@@ -22,17 +22,15 @@ def menu():
     print("2. Cuantia minima")
     print("3. Salir")
 
-def CuantiasMaximasMinimas(recubrimiento):
+def CuantiasMaximasMinimas(recubrimiento, res_concreto, res_acero, momento_ultimo):
     """
     Params:
         Los parametros necesarios para realizar la función vienen de la función parametros_calculos
     """
-    
-    res_concreto, res_acero, momento_ultimo = parametros_calculos()
     beta1 = beta1_fc(res_concreto)
     print(f"Valor de beta 1: {beta1}")
     #Calculamos la cuantía balanceada usando los parametros anteriores
-    Cuantia_bal = (0.85 * res_concreto * beta1 * 6000)/(res_acero * (6000 + res_acero))
+    Cuantia_bal = cuantia_balanceada(res_concreto, res_acero, beta1)
     #Generamos un menú para poder elegir si se desea la cuanti máxima o mínima
     while True:
         menu()
@@ -57,7 +55,7 @@ def CuantiasMaximasMinimas(recubrimiento):
             print(f"El area de acero calculado es: {As}")
             print(f"El ancho tanteado es de: {ancho}")
             print(f"El peralte tanteado es de: {peralte_efectivo}")
-            return As
+            return As, ancho, peralte_efectivo
         elif opc == '3':
             print("Sigue estudiando noma")
             break
@@ -65,5 +63,5 @@ def CuantiasMaximasMinimas(recubrimiento):
             print("Opcion no valida")
             
 if '__main__' == __name__:
-    print(f"AREA DE ACERO: {CuantiasMaximasMinimas(recubrimiento=1)}")
+    print(f"AREA DE ACERO: {CuantiasMaximasMinimas(recubrimiento=1, res_acero=1, res_concreto=1, momento_ultimo= 1)}")
     

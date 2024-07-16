@@ -19,8 +19,8 @@ python -m main
 - [X] Adding **implementation** to `CuantiasMaximasMinimas` function in `formulas/metodo_cuantias_maximas_minimas.py` file.
 - [x] **Description** of `CacularNumeroVarillas` function in `utils/funciones.py`
 - [x] **Implementation** of `CacularNumeroVarillas` function in `utils/funciones.py`
-- [] **Description** of `VerificarMaximosMinimos` function in `utils/funciones.py`
-- [] **Implementation** of `VerificarMaximosMinimos` function in `utils/funciones.py`
-- [] **Description** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
-- [] **Implementation** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
+- [x] **Description** of `VerificarMaximosMinimos` function in `utils/funciones.py`
+- [x] **Implementation** of `VerificarMaximosMinimos` function in `utils/funciones.py`
+- [x] **Description** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
+- [x] **Implementation** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
 

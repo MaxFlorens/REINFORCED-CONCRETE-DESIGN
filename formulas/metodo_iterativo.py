@@ -5,15 +5,12 @@ import random
 from utils.datos import pedir_parametros 
 from utils.datos import parametros_calculos
 
-def MetodoIterativo(ancho, peralte, recubrimiento):
+def MetodoIterativo(ancho, peralte, recubrimiento, res_concreto, res_acero, momento_ultimo):
     """
     Params:
         los parámetros se estan especificando en el archivo utils.datos con la función  parametros_iterativo
     Description: 
         En esta funcion se desarrollara el procedo iterativo, con los parametros ya proporcionados 
-    """
-    res_concreto, res_acero, momento_ultimo = parametros_calculos()
-    """
     EMPEZAMOS A DETALLAR AL FORUMULA DE ITERACIÓN 
     """
     error = 2
@@ -36,4 +33,4 @@ def MetodoIterativo(ancho, peralte, recubrimiento):
             return As
             
 if '__main__' == __name__:
-    MetodoIterativo(ancho=1, peralte=1, recubrimiento=1)
+    MetodoIterativo(ancho=1, peralte=1, recubrimiento=1, res_acero=1, res_concreto=1, momento_ultimo=1)
