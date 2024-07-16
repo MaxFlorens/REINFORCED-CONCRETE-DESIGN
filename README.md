@@ -1,3 +1,5 @@
+## PROGRAM VERSION 1.0.0
+
 ## ABOUT
 
 This project is about that different forms of design structural element of concrete.
@@ -24,3 +26,6 @@ python -m main
 - [x] **Description** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
 - [x] **Implementation** of `MostrarConfiguracionVarillas` function in `utils/funciones.py`
 
+## NOTES OF THE PROGRAM
+In this first version, the function of calculating the number of rods only works with one type of rods.
+This limitation means that the margin of error has to increase

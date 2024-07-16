@@ -7,10 +7,11 @@ def Cuantia_max(Cuantia_bal):
     print(f"se realizara el proceso del calculo para la cuantia maxima con un Ro de: {Ro}")
     return Ro
 
-def Cuantia_min(res_concreto, res_acero):
+def Cuantia_min(res_concreto, res_acero, verbose=False):
 
     Ro = (0.7 * res_concreto**(1/2))/(res_acero)
-    print(f"se realizara el proceso del calculo para la cuantia mínima con un Ro de: {Ro}")
+    if verbose:
+        print(f"se realizara el proceso del calculo para la cuantia mínima con un Ro de: {Ro}")
     return Ro
 
 def menu():
@@ -80,7 +81,7 @@ def cuantia_balanceada(res_concreto, res_acero, beta1):
     Cuantia_bal = (0.85 * res_concreto * beta1 * 6000)/(res_acero * (6000 + res_acero))
     return Cuantia_bal
 
-def CalcularNumeroVarillas(area_acero, margen_error = 1):
+def CalcularNumeroVarillas(area_acero, margen_error = 10):
     """
     Se calculara las varillas necesarias para obtener un error menor a 10% entre el area de acero teorico y el real 
     OJO: se usaran varillas de un solo área 
@@ -105,7 +106,7 @@ def CalcularNumeroVarillas(area_acero, margen_error = 1):
             #print(f"El porcentaje de error la usar esta varillas es de: {error}")
     return numero_varillas_previo, area_acero_real_previo, tipo_varilla
 
-def VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_concreto, res_acero):
+def VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_concreto, res_acero, verbose=False):
     """
     Esta verificación solo se realizará cuando se aplique el método iterativo
     - Se determina el valor del beta1
@@ -119,7 +120,7 @@ def VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_
     beta1 = beta1_fc(res_concreto)
     Cuantia_bal = cuantia_balanceada(res_concreto, res_acero, beta1)
     Cuantia_maxima = Cuantia_bal * 0.75
-    Cuantia_minima = Cuantia_min(res_concreto, res_acero)
+    Cuantia_minima = Cuantia_min(res_concreto, res_acero, verbose)
     peralte_efectivo = peralte - recubrimiento
     Cuantia_calculada = area_acero_real / (ancho * peralte_efectivo)
     return (Cuantia_calculada < Cuantia_maxima and Cuantia_calculada > Cuantia_minima)
@@ -136,10 +137,11 @@ def MostrarConfiguracionVarillas(numero_varillas, area_acero_real, ancho, peralt
         print(f"La seccion de la viga es de: ancho = {ancho}, peralte = {peralte}, recubrimiento = {recubrimiento}")
         print(f"peralte efectivo = {peralte_efectivo}")
         print(f"El acero real en la viga es de: {area_acero_real} y el numero de varillas es de {numero_varillas} de {tipo_varilla}")
-    peralte = peralte_efectivo + recubrimiento
-    print(f"La seccion de la viga es de: ancho = {ancho}, peralte = {peralte}, recubrimiento = {recubrimiento}")
-    print(f"peralte efectivo = {peralte_efectivo}")
-    print(f"El acero real en la viga es de: {area_acero_real} y el numero de varillas es de {numero_varillas} de {tipo_varilla}")
+    else:
+        peralte = peralte_efectivo + recubrimiento
+        print(f"La seccion de la viga es de: ancho = {ancho}, peralte = {peralte}, recubrimiento = {recubrimiento}")
+        print(f"peralte efectivo = {peralte_efectivo}")
+        print(f"El acero real en la viga es de: {area_acero_real} y el numero de varillas es de {numero_varillas} de {tipo_varilla}")
 if '__main__' == __name__:
     numero_varillas_previo, area_acero_real_previo = CalcularNumeroVarillas(area_acero=25.5)
     print(f"numero de varillas optimo : {numero_varillas_previo}")

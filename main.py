@@ -29,9 +29,9 @@ def DisenioVigaSimplementeReforzada():
 	
     if uso_metodo_iterativo:
         resultado = VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_concreto, res_acero)
-        margen_error = 1
+        margen_error = 10
         while resultado == False and margen_error > 0:
-            margen_error = margen_error - 0.1
+            margen_error = margen_error - 0.01
             numero_varillas, area_acero_real = CalcularNumeroVarillas(area_acero, margen_error)
             resultado = VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_concreto, res_acero) 
         if resultado == False:

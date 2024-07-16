@@ -27,16 +27,16 @@ def CuantiasMaximasMinimas(recubrimiento, res_concreto, res_acero, momento_ultim
             print(f"El area de acero calculado es: {As}")
             print(f"El ancho tanteado es de: {ancho}")
             print(f"El peralte tanteado es de: {peralte_efectivo}")
-            return As
+            return As, ancho, peralte_efectivo
         elif opc == '2':
-            Ro = Cuantia_min(res_concreto, res_acero)
+            Ro = Cuantia_min(res_concreto, res_acero, verbose=True)
             valor_prueba2 = valor_incial_para_tanteo(res_concreto, res_acero, momento_ultimo, Ro)
             ancho, peralte_efectivo = tanteo(valor_prueba=valor_prueba2, ancho=0, peralte=0, recubrimiento=recubrimiento)
             print(f"El valor aproximado con los valores tanteados es: {ancho*peralte_efectivo**2}")
             As = Ro * ancho * peralte_efectivo
             print(f"El area de acero calculado es: {As}")
             print(f"El ancho tanteado es de: {ancho}")
-            print(f"El peralte tanteado es de: {peralte_efectivo}")
+            print(f"El peralte efectivo tanteado es de: {peralte_efectivo}")
             return As, ancho, peralte_efectivo
         elif opc == '3':
             print("Sigue estudiando noma")
