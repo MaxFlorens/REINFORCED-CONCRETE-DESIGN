@@ -3,8 +3,7 @@ from utils.funciones import (
     CalcularNumeroVarillas,
     MostrarConfiguracionVarillas, 
     VerificarMaximosMinimos,
-    beta1_fc
-
+    # beta1_fc
 )
 from formulas.metodo_iterativo import MetodoIterativo 
 from formulas.metodo_cuantias_maximas_minimas import (

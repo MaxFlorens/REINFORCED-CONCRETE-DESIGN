@@ -1,5 +1,23 @@
-import random
-from formulas.metodo_cuantias_maximas_minimas import Cuantia_min
+# import random
+# from formulas.metodo_cuantias_maximas_minimas import Cuantia_min
+
+def Cuantia_max(Cuantia_bal):
+    
+    Ro = 0.75 * Cuantia_bal
+    print(f"se realizara el proceso del calculo para la cuantia maxima con un Ro de: {Ro}")
+    return Ro
+
+def Cuantia_min(res_concreto, res_acero):
+
+    Ro = (0.7 * res_concreto**(1/2))/(res_acero)
+    print(f"se realizara el proceso del calculo para la cuantia mínima con un Ro de: {Ro}")
+    return Ro
+
+def menu():
+    print("Elige la cuantia que deseas calcular")
+    print("1. Cuantia maxima")
+    print("2. Cuantia minima")
+    print("3. Salir")
 
 def beta1_fc(res_concreto):
     if res_concreto >= 175 and res_concreto <= 280:
