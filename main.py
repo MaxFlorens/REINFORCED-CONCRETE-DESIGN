@@ -32,7 +32,7 @@ def DisenioVigaSimplementeReforzada():
         margen_error = 10
         while resultado == False and margen_error > 0:
             margen_error = margen_error - 0.01
-            numero_varillas, area_acero_real = CalcularNumeroVarillas(area_acero, margen_error)
+            numero_varillas, area_acero_real, tipo_varilla = CalcularNumeroVarillas(area_acero, margen_error)
             resultado = VerificarMaximosMinimos(area_acero_real, ancho, peralte, recubrimiento, res_concreto, res_acero) 
         if resultado == False:
             print("Se requiere de un diseño para una viga doblemente reforzada") 
