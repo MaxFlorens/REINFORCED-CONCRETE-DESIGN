@@ -1,26 +1,8 @@
-import os
-import sys
+# import os
+# import sys
 
-from utils.datos import pedir_parametros, parametros_calculos
-from utils.funciones import beta1_fc, tanteo, valor_incial_para_tanteo, cuantia_balanceada
-
-def Cuantia_max(Cuantia_bal):
-    
-    Ro = 0.75 * Cuantia_bal
-    print(f"se realizara el proceso del calculo para la cuantia maxima con un Ro de: {Ro}")
-    return Ro
-
-def Cuantia_min(res_concreto, res_acero):
-
-    Ro = (0.7 * res_concreto**(1/2))/(res_acero)
-    print(f"se realizara el proceso del calculo para la cuantia mínima con un Ro de: {Ro}")
-    return Ro
-
-def menu():
-    print("Elige la cuantia que deseas calcular")
-    print("1. Cuantia maxima")
-    print("2. Cuantia minima")
-    print("3. Salir")
+# from utils.datos import pedir_parametros, parametros_calculos
+from utils.funciones import beta1_fc, tanteo, valor_incial_para_tanteo, cuantia_balanceada, menu, Cuantia_max, Cuantia_min
 
 def CuantiasMaximasMinimas(recubrimiento, res_concreto, res_acero, momento_ultimo):
     """
