@@ -57,17 +57,32 @@ def tanteo(valor_prueba, ancho, peralte, recubrimiento):
     print(f"El error mas mínimo es: {error_}")
     return ancho_previo, peralte_efectivo_previo
 
-def CalcularNumeroVarillas():
+def CalcularNumeroVarillas(area_acero):
     """
-    Add documentation
+    Se calculara las varillas necesarias para obtener un error menor a 10% entre el area de acero teorico y el real 
+    OJO: se usaran varillas de un solo área 
     """
-    numero_varillas = 0
-    area_acero_real = 0
-    return numero_varillas, area_acero_real
+    area_acero_real_previo = 0
+    numero_varillas_previo = 1000
+    #areas_nominales = [0.28, 0.50, 0.71, 1.13, 1.29, 1.99, 2.84, 5.10, 10.06]
+    varillas_nominales = {'6mm': 0.28,'8mm': 0.50, '3/8"': 0.71, '12mm': 1.13, '1/2"': 1.29, '5/8"': 1.99, '3/4"': 2.84, '1"': 5.10, '1 3/8"': 10.06}
+    
+    for varilla in varillas_nominales:
+        numero_varillas = area_acero // varillas_nominales[varilla]
+        area_acero_real = numero_varillas * varillas_nominales[varilla]
+        error = abs(((area_acero - area_acero_real)/(area_acero))*100)
+        if error < 1 and numero_varillas < numero_varillas_previo:
+            area_acero_real_previo = area_acero_real
+            numero_varillas_previo = numero_varillas
+           # print(f"El area de acero real es: {area_acero_real}")
+            #print(f"El numero de varillas es: {numero_varillas}")
+            #print(f"La varilla usada es : {varilla} cuyo area es : {varillas_nominales[varilla]} cm2")
+            #print(f"El porcentaje de error la usar esta varillas es de: {error}")
+    return numero_varillas_previo, area_acero_real_previo
 
 def VerificarMaximosMinimos():
     """
-    Add documentation
+    
     """
     pass
 
@@ -78,6 +93,9 @@ def MostrarConfiguracionVarillas():
     print(f"Mostrando resultados: \n")
 
 if '__main__' == __name__:
+    numero_varillas_previo, area_acero_real_previo = CalcularNumeroVarillas(area_acero=25.5)
+    print(f"numero de varillas optimo : {numero_varillas_previo}")
+    print(f"area de acero real: {area_acero_real_previo}")
     print("loading utils.funciones.py file\n")
 
 

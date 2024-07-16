@@ -48,7 +48,6 @@ def CuantiasMaximasMinimas(recubrimiento):
             print(f"El ancho tanteado es de: {ancho}")
             print(f"El peralte tanteado es de: {peralte_efectivo}")
             return As
-            break
         elif opc == '2':
             Ro = Cuantia_min(res_concreto, res_acero)
             valor_prueba2 = valor_incial_para_tanteo(res_concreto, res_acero, momento_ultimo, Ro)
@@ -59,7 +58,6 @@ def CuantiasMaximasMinimas(recubrimiento):
             print(f"El ancho tanteado es de: {ancho}")
             print(f"El peralte tanteado es de: {peralte_efectivo}")
             return As
-            break 
         elif opc == '3':
             print("Sigue estudiando noma")
             break

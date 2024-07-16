@@ -25,7 +25,7 @@ def DisenioVigaSimplementeReforzada():
         uso_metodo_iterativo = False
         area_acero = CuantiasMaximasMinimas(recubrimiento)
 
-    numero_varillas, area_acero_real = CalcularNumeroVarillas()
+    numero_varillas, area_acero_real = CalcularNumeroVarillas(area_acero)
 	
     if uso_metodo_iterativo:
         resultado = VerificarMaximosMinimos()
